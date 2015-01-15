@@ -1,2 +1,2 @@
-# blog
-http://tw-hkt.blogspot.tw/  部落格資料
+# TW-HKT 程式●城市●人
+http://tw-hkt.blogspot.tw
