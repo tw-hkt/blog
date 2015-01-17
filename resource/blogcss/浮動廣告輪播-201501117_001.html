@@ -1,0 +1,67 @@
+﻿<script type='text/javascript'>
+    // 當網頁載入完
+    $(window).load(function() {        
+        var adTimer;
+        var timer_is_on = 0;
+        var ad_num = 1;
+
+        // 如果滑鼠移入 $block 時
+        $('#abgne_float_ad').hover(function() {
+            // 關閉計時器
+
+            clearTimeout(adTimer);
+            timer_is_on = 0;
+        }, function() {
+            // 如果滑鼠移出 $block 時
+            // 開啟計時器
+            startCount()
+        });
+
+        startCount();
+
+        function timedCount() {
+            //輪播廣告
+            switch (ad_num) {
+                case 1:
+                    //Look - 匿名心情分享
+                    $('#ad_url').attr('href', 'https://play.google.com/store/apps/details?id=com.calvinhuo.look');
+                    $('#ad_img').attr('src', 'https://raw.githubusercontent.com/tw-hkt/blog/master/resource/img/Look%20-%20%E5%8C%BF%E5%90%8D%E5%BF%83%E6%83%85%E5%88%86%E4%BA%AB.png');
+                    ad_num++;
+                    break;
+                case 2:
+                    //新聞NEW一下
+                    $('#ad_url').attr('href', 'https://chrome.google.com/webstore/detail/%E6%96%B0%E8%81%9E-new-%E4%B8%80%E4%B8%8B/jendoiknohepgdfendlmbfpohcnhajma?utm_source=chrome-ntp-icon');
+                    $('#ad_img').attr('src', 'https://raw.githubusercontent.com/tw-hkt/blog/master/resource/img/%E6%96%B0%E8%81%9ENEW%E4%B8%80%E4%B8%8B.png');
+                    ad_num++;
+                    break;
+                case 3:
+                    //Android Studio 中文開發者社群
+                    $('#ad_url').attr('href', 'https://www.facebook.com/AndroidStudio.TW');
+                    $('#ad_img').attr('src', 'https://raw.githubusercontent.com/tw-hkt/blog/master/resource/img/Android%20Studio%20%E4%B8%AD%E6%96%87%E9%96%8B%E7%99%BC%E8%80%85%E7%A4%BE%E7%BE%A4.png');
+                    ad_num = 1;
+                    break;
+                default:
+                    //Look - 匿名心情分享
+                    $('#ad_url').attr('href', 'https://play.google.com/store/apps/details?id=com.calvinhuo.look');
+                    $('#ad_img').attr('src', 'https://raw.githubusercontent.com/tw-hkt/blog/master/resource/img/Look%20-%20%E5%8C%BF%E5%90%8D%E5%BF%83%E6%83%85%E5%88%86%E4%BA%AB.png');
+                    ad_num = 1;
+            }
+            adTimer = setTimeout(function() {
+                timedCount()
+            }, 2000);
+        }
+
+        function startCount() {
+            if (!timer_is_on) {
+                timer_is_on = 1;
+                timedCount();
+            }
+        }
+
+        function stopCount() {
+            clearTimeout(t);
+            timer_is_on = 0;
+        }
+
+    });
+</script>
